@@ -238,3 +238,4 @@ C:\Users\Lukw\source\repos\Umbraco\Umbraco\obj\Debug\Umbraco.csproj.CoreCompileI
 C:\Users\Lukw\source\repos\Umbraco\Umbraco\obj\Debug\Umbraco.csproj.CopyComplete
 C:\Users\Lukw\source\repos\Umbraco\Umbraco\obj\Debug\Umbraco.dll
 C:\Users\Lukw\source\repos\Umbraco\Umbraco\obj\Debug\Umbraco.pdb
+C:\Users\Lukw\source\repos\Umbraco\Umbraco\obj\Debug\Umbraco.csprojAssemblyReference.cache
