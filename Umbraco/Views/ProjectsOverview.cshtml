@@ -5,5 +5,17 @@
 }
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
-@Model.Value("projectsTitle")
-@Model.Value("projectsBodyText")
+<div class="row ">
+    <div class="col-md-8 mx-auto text-center my-3">
+        <h1>@Model.Value("projectsTitle")</h1>
+    <p class="content">
+        @Model.Value("projectsBodyText")
+
+    </p>
+    </div>
+    
+</div>
+
+<section class="section section row">
+    @Html.GetGridHtml(Model, "bodyText", "bootstrap3-fluid")
+</section>
