@@ -1,0 +1,47 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using Umbraco.Web;
+@{
+    var startNodeId = Model.MacroParameters["startNodeId"] != null ? Model.MacroParameters["startNodeId"] : Model.Content.Id;
+
+
+
+}
+@if (startNodeId != null)
+{
+    @* Get the starting page *@
+    var startNode = Umbraco.Content(startNodeId);
+
+    if (startNode == null)
+    {
+        <div class="blogposts">
+            <h1>There are no posts at this time, try again later.</h1>
+        </div>
+
+        return;
+    }
+
+    //Gets all blogposts to calculate pages
+    var projects = startNode.Children.OrderBy(x => x.CreateDate).ToList();
+  
+
+    if (projects.Count > 0)
+    {
+        <div class="projects">
+
+            @foreach (ContentModels.ProjectItem projectItem in projects)
+            {
+                <a href="@projectItem.Url" class="projectItem">
+                    <div class="project-meta">
+                        <small class="project-date">@projectItem.CreateDate.ToShortDateString()</small>
+                        <small class="project-cat">
+                        </small>
+                    </div>
+                    <h3 class="blogpost-title">@projectItem.ProjectTitle</h3>
+                    <div class="blogpost-excerpt">@projectItem.ProjectDescription</div>
+                </a>
+            }
+        </div>
+    }
+}
+

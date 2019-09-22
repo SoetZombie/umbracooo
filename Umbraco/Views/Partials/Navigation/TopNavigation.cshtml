@@ -1,0 +1,59 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Web;
+@{
+    var site = Model.Root();
+    var selection = site.Children.Where(x => x.IsVisible());
+
+}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            @foreach (var item in selection)
+             {
+                var nullCheck = item.Children;
+                if (item.Children.Any() && nullCheck != null)
+                {
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" href="@item.Url" data-hover="dropdown"
+                           aria-haspopup="true" aria-expanded="false">@item.Name</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            @foreach (var subClass in item.Children)
+                            {
+                                <a class="dropdown-item" href="@subClass.Url">@subClass.Name</a>
+                            }
+                        </div>
+                    </li>
+
+                }
+                else
+                {
+
+                <li class="nav-item active">
+                    <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url">@item.Name<span class="sr-only">(current)</span></a>
+                </li>
+                }
+             }
+
+        </ul>
+
+    </div>
+</nav>
+<style>
+    .dropdown-menu{
+        opacity:0;
+        transition: all 0.2s linear;
+        display:block;
+       
+    }
+    .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    transition: all 0.2s linear;
+    opacity: 1;
+ }
+</style>
