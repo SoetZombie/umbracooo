@@ -32,7 +32,6 @@ namespace Umbraco.Controllers
             msg.SetValue("subject", model.Subject);
             msg.SetValue("messageContent", model.Message);
             msg.SetValue("umbracoNaviHide", true);
-
             TempData["success"] = true;
             Services.ContentService.Save(msg);
             return RedirectToCurrentUmbracoPage();

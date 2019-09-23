@@ -24,7 +24,10 @@
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             @foreach (var subClass in item.Children)
                             {
-                                <a class="dropdown-item" href="@subClass.Url">@subClass.Name</a>
+                                if (Umbraco.MemberHasAccess(subClass.Path))
+                                {
+                                    <a class="dropdown-item" href="@subClass.Url">@subClass.Name</a>
+                                }
                             }
                         </div>
                     </li>

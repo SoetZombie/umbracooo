@@ -1,0 +1,38 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.AllMembers>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using Umbraco.Core.Services;
+@using Newtonsoft.Json;
+
+@{
+    Layout = "master.cshtml";
+}
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+@{
+    IMemberService memberService = Services.MemberService;
+    var members = memberService.GetMembersByGroup("Active");
+}
+<div class="row">
+
+    <div class="row col-md-8 mx-auto">
+        @foreach (var member in members)
+        {
+        <span class="mx-5 my-5">
+            @{
+                string[] img = member.GetValue("Photo").ToString().Split('"');
+
+            }
+            <img width="50px" height="50px " src="@img[11]" />
+            <br />
+            @member.Name
+            <br>
+            @member.GetValue("address")
+            <br>
+            @member.GetValue("zip")
+            @member.GetValue("city"))
+            <br>
+            Email: @member.Email<br>
+            Skills: @member.GetValue("skills")
+        </span>
+        }
+    </div>
+</div>
