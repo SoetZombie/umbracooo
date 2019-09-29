@@ -1,5 +1,27 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ProjectItem>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
-	Layout = null;
+    Layout = "master.cshtml";
 }
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+
+<section class="section section row">
+    @Html.GetGridHtml(Model, "bodyText", "bootstrap3-fluid")
+</section>
+
+<section class="section">
+    <div class="container">
+        <article>
+            <div class="blogpost-meta">
+                <small class="blogpost-date">@Model.CreateDate.ToShortDateString()</small>
+                <span class="blogpost-cat">
+                    @Model.ProjectTitle
+                </span>
+            </div>
+            <h3>@Model.ProjectDescription</h3>
+            <div class="btn btn-danger">@Model.ProjectStatus</div>
+         
+        </article>
+    </div>
+</section>

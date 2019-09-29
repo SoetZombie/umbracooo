@@ -724,3 +724,6 @@ Umbraco.Web.PublishedModels.ProjectItem, Umbraco.Web.PublishedModels, Version=0.
 Umbraco.Web.PublishedModels.ProjectsOverview, Umbraco.Web.PublishedModels, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.PublishedModels.TextPage, Umbraco.Web.PublishedModels, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 
+Umbraco.Core.Deploy.IServiceConnector
+
+
