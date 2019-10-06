@@ -1,0 +1,21 @@
+https://github.com/SoetZombie/umbracooo
+
+admin login: 
+Hovado1234
+
+Editor
+jane@wilfred.dk
+passwordpassword
+
+Writer
+tim@hansson.dk
+passwordpassword
+
+Members:
+Guest 
+guest@guest.dk
+guest@guest.dk
+
+Active
+active@member.com
+active@member.com
